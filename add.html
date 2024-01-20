@@ -1,15 +1,12 @@
 <!DOCTYPE html>
 <html lang="en">
-
 <head>
     <meta charset="UTF-8">
     <title>Create Recipe</title>
     <link rel="stylesheet" href="add.css">
 </head>
-
 <body>
     <h1>Create a New Recipe</h1>
-
     <form id="recipeForm">
         <label for="recipeTitle">Title:</label>
         <input type="text" id="recipeTitle" name="recipeTitle" required>
@@ -22,7 +19,6 @@
 
         <button type="submit">Create Recipe</button>
     </form>
-
     <h2>Recipe List</h2>
     <table border="1">
         <thead>
@@ -43,7 +39,8 @@
             fetchRecipes();
 
             // Attach event listener to the form submission
-            document.getElementById('recipeForm').addEventListener('submit', submitRecipe);
+            document.getElementById('recipeForm').addEventListener('submit', (event) => submitRecipe(event));
+
         });
 
         async function fetchRecipes() {
