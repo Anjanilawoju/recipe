@@ -9,15 +9,18 @@ body{
     text-align: center;
     margin-top: 11px;
     font-size: 23px;
+    color: #c47d3e;
 }
 .searchBar{
     display: flex;
     justify-content: center;
     margin-top: 14px;
+    
 } 
+
 .searchBar input{
     width: 300px;
-    height: 12px;
+    height: 36px;
     padding: 11px;
     outline: none;
     border-radius: 33px;
@@ -27,14 +30,31 @@ body{
 .searchBar button{
     width: 60px;
     height: 36px;
-    border-top-right-radius: 22px;
-    border-bottom-right-radius: 22px;
-    margin-left: -33px;
+    border-top-right-radius: 33px;
+    border-bottom-right-radius: 33px;
+    margin-left: -1px; 
     border: none;
     font-size: 18px;
     color: white;
     background-color: orangered;
 }
+.searchBar button:hover {
+    background-color: darkorange; 
+}
+/* .container button{
+    display: flex;
+    align-items: center;
+    background: linear-gradient(#c47d3e,#f0b55c);
+    color: #fff;
+    font-size: 16px;
+    outline: 0;
+    border: 0;
+    border-radius: 40px;
+    padding: 15px 25px;
+    margin:30px 0 20px;
+    cursor: pointer;
+    justify-content: space-between;
+} */
 .category{
     
     width: 600px;

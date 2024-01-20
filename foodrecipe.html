@@ -1,0 +1,90 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Recipe App</title>
+
+    <style>
+        body {
+            font-family: 'Arial', sans-serif;
+            margin: 0;
+            padding: 0;
+            background-color: #f4f4f4;
+        }
+
+        h1 {
+            text-align: center;
+            color: #333;
+            margin-top: 20px;
+        }
+
+        #recipeList {
+            max-width: 600px;
+            margin: 20px auto;
+            background-color: #fff;
+            padding: 20px;
+            border-radius: 8px;
+            box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+        }
+
+        div {
+            border-bottom: 1px solid #ddd;
+            padding: 10px;
+            margin-bottom: 10px;
+        }
+
+        h5 {
+            color: #333;
+            margin-bottom: 5px;
+        }
+
+        p {
+            color: #666;
+            margin-top: 0;
+        }
+    </style>
+</head>
+<body>
+    <h1>Delicious Recipes</h1>
+    
+    <div id="recipeList"></div>
+
+    <script>
+        document.addEventListener('DOMContentLoaded', () => {
+            // Fetch recipes when the page loads
+            fetchRecipes();
+        });
+
+        async function fetchRecipes() {
+            try {
+                const response = await fetch('http://localhost:3000/getRecipes');
+                const recipes = await response.json();
+
+                // Display recipes on the UI
+                displayRecipes(recipes);
+            } catch (error) {
+                console.error('Error fetching recipes:', error);
+            }
+        }
+
+        function displayRecipes(recipes) {
+            const recipeListElement = document.getElementById('recipeList');
+
+            // Assuming each recipe has a 'recipe_title' property
+            const recipeItems = recipes.map(recipe => `<div>
+                <h1>Recipe Title</h1>
+                <h2>${recipe.recipe_title}</h2>
+                <h1>Recipe ingredient</h1>
+                 <h3>${recipe.ingredient}</h3>
+                <h1>recipe instructions</h1>
+                <h3>${recipe.instructions}</h3>
+
+            </div>`);
+
+            // Update the UI with the list of recipes
+            recipeListElement.innerHTML = recipeItems.join('');
+        }
+    </script>
+</body>
+</html>

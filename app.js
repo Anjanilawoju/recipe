@@ -37,7 +37,7 @@ app.post('/submit-recipe', (req, res) => {
     console.log('New recipe added to the database');
 
     const { recipeTitle, ingredients, instructions } = req.body;
-    let recipeid=6
+    let recipeid=9
     const sql = 'INSERT INTO new_table (recipeid,recipe_title, ingredient) VALUES (?, ?, ?)';
     pool.query(sql, [ recipeid,recipeTitle, ingredients], (err, result) => {
         if (err) {
